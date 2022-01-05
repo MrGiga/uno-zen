@@ -1,0 +1,38 @@
+dist:
+  name: uno-zen
+  css: assets/css
+  js: assets/js
+
+src:
+  sass:
+    main: content/themes/uno-zen/assets/scss/uno-zen.scss
+    files: [assets/scss/**/**]
+
+  js:
+    common:
+      main:
+        [
+          content/themes/uno-zen/assets/js/src/__init.coffee,
+          content/themes/uno-zen/assets/js/src/main.coffee,
+          content/themes/uno-zen/assets/js/src/cover.coffee,
+        ]
+      vendor:
+        [
+          content/themes/uno-zen/assets/vendor/fastclick/lib/fastclick.js,
+          content/themes/uno-zen/assets/vendor/instantclick/instantclick.js,
+          content/themes/uno-zen/assets/vendor/pace/pace.min.js,
+          content/themes/uno-zen/assets/vendor/reading-time/build/readingtime.min.js,
+        ]
+    post: [content/themes/uno-zen/assets/vendor/fitvids/jquery.fitvids.js, content/themes/uno-zen/assets/js/src/prism.js]
+
+  css:
+    main: content/themes/uno-zen/assets/css/uno-zen.css
+    vendor: content/themes/uno-zen/assets/css/vendor
+# banner = [ "/**"
+#            " * <%= pkg.name %> - <%= pkg.description %>"
+#            " * @version <%= pkg.version %>"
+#            " * @link    <%= pkg.homepage %>"
+#            " * @author  <%= pkg.author.name %> (<%= pkg.author.url %>)"
+#            " * @license <%= pkg.license %>"
+#            " */"
+#            "" ].join("\n")

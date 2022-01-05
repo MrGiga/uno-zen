@@ -12,7 +12,7 @@ uglify      = require('gulp-uglify'),
 cssnano     = require('gulp-cssnano'),
 addsrc      = require('gulp-add-src'),
 changed     = require('gulp-changed'),
-browserSync = require('browser-sync'),
+browserSync = require('browser-sync').create(),
 pkg         = require('./package.json'),
 prefix      = require('gulp-autoprefixer'),
 strip       = require('gulp-strip-css-comments'),
@@ -28,24 +28,17 @@ var isProduction = false;
 /**
  * Define Configuration object
  */
-var config = yaml.load(fs.readFileSync('gulp_config.yaml', 'utf-8'));
-
+ var config;
+if(isProduction) {
+   config = yaml.load(fs.readFileSync('gulp_config.yaml', 'utf-8'));
+}else{
+    config = yaml.load(fs.readFileSync('gulp_ghost_config.yaml', 'utf-8'));
+}
 // ----------------------------------------------------------------------------
 
 /**
  * Compile SASS into CSS
  */
-// gulp.task('Generate Styles', function () {
-//     gulp.src(config.src.sass)
-//         .pipe(plumber())
-//         .pipe(sass())
-//         .pipe(autoprefixer("> 1%"))
-//         .pipe(gulp.dest(config.dest.css))
-//         .pipe(minifyCss())
-//         .pipe(gulp.dest(config.dest.css));
-// });
-
-
 // gulp.task 'js-common', ->
 //   gulp.src src.js.common.main
 //   .pipe changed dist.js
@@ -57,8 +50,8 @@ var config = yaml.load(fs.readFileSync('gulp_config.yaml', 'utf-8'));
 //   .pipe gulp.dest dist.js
 //   return
 
-gulp.task('js-common', function(){
-    return gulp.src(config.src.js.common.main)
+gulp.task('js-common', function(done){
+    gulp.src(config.src.js.common.main)
         .pipe(changed(config.dist.js))
         .pipe(coffee())
         .pipe(addsrc(config.src.js.common.vendor))
@@ -66,6 +59,7 @@ gulp.task('js-common', function(){
         .pipe(gulpif(isProduction, uglify()))
         //.pipe(gulpif(isProduction,))
         .pipe(gulp.dest(config.dist.js))
+        .on('end', done);
 });
 
 // gulp.task 'js-post', ->
@@ -77,12 +71,13 @@ gulp.task('js-common', function(){
 //   .pipe gulp.dest dist.js
 //   return
 
-gulp.task('js-post', function(){
-    return gulp.src(config.src.js.post)
+gulp.task('js-post', function(done){
+    gulp.src(config.src.js.post)
     .pipe(changed(config.dist.js))
     .pipe(concat(config.dist.name + '.post.js'))
     .pipe(gulpif(isProduction, uglify()))
     .pipe(gulp.dest(config.dist.js))
+    .on('end', done);
 });
 
 
@@ -98,8 +93,8 @@ gulp.task('js-post', function(){
 //   .pipe gulpif(isProduction, header banner, pkg: pkg)
 //   .pipe gulp.dest dist.css
 //   return
-gulp.task('css', function() {
-    return gulp.src(config.src.css.vendor, {allowEmpty: true})
+gulp.task('css', function(done) {
+    gulp.src(config.src.css.vendor, {allowEmpty: true})
         .pipe(changed(config.dist.css))
         .pipe(addsrc(config.src.sass.main))
         //.pipe sass().on('error', sass.logError)
@@ -110,6 +105,7 @@ gulp.task('css', function() {
         .pipe(gulpif(isProduction, cssnano()))
         //.pipe gulpif(isProduction, header banner, pkg: pkg)
         .pipe(gulp.dest(config.dist.css,  {allowEmpty: true}))
+        .on('end', done);
 });
 
 // gulp.task 'default', ->
@@ -118,79 +114,22 @@ gulp.task('css', function() {
 //   gulp.watch src.js.common.main, ['js-common', reload]
 //   gulp.watch src.js.post, ['js-post', reload]
 
-gulp.task('server', function(){
-    return browserSync.init(pkg.browserSync);
+gulp.task('server', function(done){
+    browserSync.init(pkg.browserSync);
+    
+    //  gulp.watch(config.src.sass.files, {'usePolling': true}, gulp.series('css', browserSync.reload))
+     gulp.watch(config.src.sass.files, {'usePolling': true}).on('change',gulp.series('css', browserSync.reload));
+    gulp.watch(config.src.js.common.main, {'usePolling': true}).on('change',gulp.series('js-common', browserSync.reload));
+    // gulp.watch(config.src.js.common.main, {'usePolling': true}, gulp.series('js-common', browserSync.reload))
+    gulp.watch(config.src.js.post, {'usePolling': true}).on('change',gulp.series('js-post', browserSync.reload));
+    gulp.watch("content/themes/uno-zen/partials/*.hbs", {'usePolling': true}).on('change', browserSync.reload);
+    // gulp.watch(config.src.js.post, {'usePolling': true}, gulp.series('js-post', browserSync.reload))
+    done();
 });
 
 gulp.task('js', gulp.series(['js-common','js-post']));
 gulp.task('build', gulp.series(['css','js']));
 
-gulp.task('default', gulp.series(['build', 'server']), function(){
-    gulp.watch(config.src.sass.files, gulp.series('css', reload))
-    gulp.watch(config.src.js.common.main, gulp.series('js-common', reload))
-    gulp.watch(config.src.js.post, gulp.series('js-post', reload))
-});
+gulp.task('default', gulp.series(['build']));
 
-// ----------------------------------------------------------------------------
-
-/**
- * Compile CoffeeScript and Angular Code into JS
- */
-// gulp.task('Generate Scripts', function () {
-//     gulp.src(config.src.coffee)
-//         .pipe(plumber())
-//         .pipe(include())
-//         .pipe(coffee({bare: true}))
-//         .pipe(ngAnnotate())
-//         .pipe(gulp.dest(config.dest.js));
-// });
-
-// // ----------------------------------------------------------------------------
-
-// /**
-//  * Compile Bower files
-//  */
-// gulp.task('Compress Third Party Files', function () {
-//     // Combine JS Files
-//     gulp.src(config.third_party.js)
-//         .pipe(uglify())
-//         .pipe(concat('dependencies.min.js'))
-//         .pipe(gulp.dest(config.dest.js));
-
-//     // Combine CSS files
-//     gulp.src(config.third_party.css)
-//         .pipe(minifyCss())
-//         .pipe(concat('dependencies.min.css'))
-//         .pipe(gulp.dest(config.dest.css));
-
-//     // Flatten fonts
-//     gulp.src(config.third_party.fonts)
-//         .pipe(flatten())
-//         .pipe(gulp.dest(config.dest.fonts));
-// });
-
-// // ----------------------------------------------------------------------------
-
-// /**
-//  * Create Watch Scripts
-//  */
-// gulp.task('Create Watch Scripts', function () {
-//     watch({glob: config.src.coffee, emitOnGlob: false}, ['Generate Scripts']);
-//     watch({glob: config.src.sass, emitOnGlob: false}, ['Generate Styles']);
-// });
-
-// // ----------------------------------------------------------------------------
-
-// /**
-//  * Default task
-//  */
-// gulp.task('default', [
-//     'Generate Scripts',
-//     'Generate Styles',
-//     'Compress Third Party Files',
-//     'Create Watch Scripts'
-// ]);
-
-// gulp.task('default', [
-//     'js-common'
-// ]);
+gulp.task('watch', gulp.series(['server']));
