@@ -9,8 +9,8 @@ $ ->
       if this.href.indexOf(location.hostname) is -1
         window.open $(this).attr 'href'
         false
-  else
-    FastClick.attach Uno.app
+  # else
+  #   FastClick.attach Uno.app
 
   if Uno.is('page', 'home') or Uno.is('page', 'paged') or Uno.is('page', 'tag')
     Uno.timeAgo '#posts-list time'

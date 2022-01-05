@@ -1,12 +1,12 @@
 dist:
   name: uno-zen
-  css: assets/css
-  js: assets/js
+  css: content/themes/uno-zen/assets/css
+  js: content/themes/uno-zen/assets/js
 
 src:
   sass:
     main: content/themes/uno-zen/assets/scss/uno-zen.scss
-    files: [assets/scss/**/**]
+    files: [content/themes/uno-zen/assets/scss/**/**.scss]
 
   js:
     common:
@@ -18,7 +18,6 @@ src:
         ]
       vendor:
         [
-          content/themes/uno-zen/assets/vendor/fastclick/lib/fastclick.js,
           content/themes/uno-zen/assets/vendor/instantclick/instantclick.js,
           content/themes/uno-zen/assets/vendor/pace/pace.min.js,
           content/themes/uno-zen/assets/vendor/reading-time/build/readingtime.min.js,
