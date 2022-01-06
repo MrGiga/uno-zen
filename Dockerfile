@@ -11,7 +11,7 @@ RUN set -eux; \
 	npm cache clean --force
 
 RUN apt-get update;
-RUN apt-get install -y --no-install-recommends ca-certificates git;
+RUN apt-get install -y --no-install-recommends ca-certificates git zip;
 ENV NODE_ENV=development
 
 COPY package.json .
