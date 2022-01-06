@@ -210,6 +210,11 @@ main {
     margin: 1.7rem 0;
     width: 30%;
   }
+  &.longest {
+    width: 70%;
+    margin-left: auto;
+    margin-right: auto;
+  }
 }
 
 .container {

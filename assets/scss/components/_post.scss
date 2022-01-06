@@ -15,8 +15,16 @@
       letter-spacing: 2px;
     }
 
+    > .post.excerpt {
+      display: block;
+      padding-top: 0.5rem;
+    }
+
     > a {
       @extend %dotted-link;
+      font-size: 30px;
+      font-weight: bold;
+      
     }
 
     > span > a {
@@ -24,6 +32,7 @@
     }
   }
 }
+
 
 #post-content {
 

@@ -5,9 +5,11 @@
   {{#foreach posts}}
   <li>
     <a href="{{url}}" title="Read more about '{{title}}'">{{title}}</a>
+    <p class="post excerpt"><u>Excerpt</u>: {{excerpt}}</p>
     <time datetime="{{date format="DD MMM YYYY"}}">{{date format="DD MMM YYYY"}}</time>
     <span class="post tags">{{tags separator=" "}}</span>
   </li>
+  <hr class="divider longest post">
   {{/foreach}}
 </ol>
 
