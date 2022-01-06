@@ -2,7 +2,7 @@
 
 $ ->
 
-  InstantClick.init()
+  #InstantClick.init() //Replace with https://github.com/GoogleChromeLabs/quicklink maybe
 
   if Uno.is 'device', 'desktop'
     $('a').not('[href*="mailto:"]').click ->

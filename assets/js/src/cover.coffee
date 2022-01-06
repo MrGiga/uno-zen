@@ -14,6 +14,13 @@ $ ->
   $('#menu-button').click ->
     $('.cover, main, #menu-button, html').toggleClass 'expanded'
 
+#Implemented nav menu collapsing if element.href == window.location.href 
+  $('.nav-current').click (event) ->
+    element = event.target
+    event.preventDefault()
+    if element.href == window.location.href
+      $('.cover, main, #menu-button, html, nav-current').toggleClass 'expanded'
+
   $("#{window.open_button}, #avatar-link").click (event) ->
     if Uno.is 'page', 'home'
       event.preventDefault()
