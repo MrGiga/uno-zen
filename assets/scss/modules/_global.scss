@@ -219,6 +219,7 @@ main {
 
 .container {
   margin: 0 auto;
+  z-index: 500;
   position: relative;
   width: $total-width - $gutter-width;
 }
