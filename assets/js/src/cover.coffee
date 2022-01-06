@@ -14,12 +14,19 @@ $ ->
   $('#menu-button').click ->
     $('.cover, main, #menu-button, html').toggleClass 'expanded'
 
+#If nav is collapsed then on any page load, it should also be collapsed
+  $(window).on "load", ->
+    if(localStorage.getItem('navcollapsed') == 'true' && $('.cover').hasClass('expanded'))
+      $('.cover, main, #menu-button, html, nav-current').toggleClass 'expanded'
+
 #Implemented nav menu collapsing if element.href == window.location.href 
   $('.nav-current').click (event) ->
     element = event.target
-    event.preventDefault()
     if element.href == window.location.href
+      event.preventDefault()
       $('.cover, main, #menu-button, html, nav-current').toggleClass 'expanded'
+      localStorage.setItem('navcollapsed',!$('.cover, main, #menu-button, html, nav-current').hasClass('expanded'));
+      
 
   $("#{window.open_button}, #avatar-link").click (event) ->
     if Uno.is 'page', 'home'
