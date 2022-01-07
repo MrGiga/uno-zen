@@ -21,7 +21,7 @@ fs              = require('fs'),
 reload      = browserSync.reload;
 
 // isProduction = process.env.NODE_ENV is 'production';
-var isProduction = false;
+var isProduction = true;
 
 // ----------------------------------------------------------------------------
 
@@ -29,7 +29,7 @@ var isProduction = false;
  * Define Configuration object
  */
  var config;
-if(isProduction) {
+if(!isProduction) {
    config = yaml.load(fs.readFileSync('gulp_config.yaml', 'utf-8'));
 }else{
     config = yaml.load(fs.readFileSync('gulp_ghost_config.yaml', 'utf-8'));

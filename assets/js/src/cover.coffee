@@ -22,7 +22,7 @@ $ ->
 #Implemented nav menu collapsing if element.href == window.location.href 
   $('.nav-current').click (event) ->
     element = event.target
-    if element.href == window.location.href
+    if element.href == window.location.href || element.href == window.location.href + "#open"
       event.preventDefault()
       $('.cover, main, #menu-button, html, nav-current').toggleClass 'expanded'
       localStorage.setItem('navcollapsed',!$('.cover, main, #menu-button, html, nav-current').hasClass('expanded'));

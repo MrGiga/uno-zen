@@ -38,10 +38,20 @@
 
 .profile {
   max-width: 38.75rem;
+  text-shadow:
+        0.05em 0 black,
+        0 0.05em black,
+        -0.05em 0 black,
+        0 -0.05em black,
+        -0.05em -0.05em black,
+        -0.05em 0.05em black,
+        0.05em -0.05em black,
+        0.05em 0.05em black;
   > p {
     margin: 10px 2rem;
-
     font-size: .9rem;
+    background:rgba(42,42,42,.47);
+    color: #fff;
   }
   > a {
     > h1 {
