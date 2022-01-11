@@ -2,15 +2,15 @@
 
 $ ->
 
-  InstantClick.init()
+  #InstantClick.init() //Replace with https://github.com/GoogleChromeLabs/quicklink maybe
 
   if Uno.is 'device', 'desktop'
     $('a').not('[href*="mailto:"]').click ->
       if this.href.indexOf(location.hostname) is -1
         window.open $(this).attr 'href'
         false
-  else
-    FastClick.attach Uno.app
+  # else
+  #   FastClick.attach Uno.app
 
   if Uno.is('page', 'home') or Uno.is('page', 'paged') or Uno.is('page', 'tag')
     Uno.timeAgo '#posts-list time'
