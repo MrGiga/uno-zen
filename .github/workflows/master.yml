@@ -15,7 +15,7 @@ jobs:
           node-version: '14'
       - run: npm install
       - run: node bower install
-      - run: npm install gulp@4.0.2 --dev
+      - run: npm install gulp@4.0.2 --also=dev
       - run: gulp build
       - name: Zip Folder
         run: zip -r release.zip *.hbs *.md *.html package.json partials/ assets/js/uno-zen.common.js assets/js/uno-zen.post.js assets/css/uno-zen.css assets/fonts/ assets/img/
