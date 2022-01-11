@@ -1,11 +1,11 @@
 dist:
-  name: uno-zen
+  name: uno-zen-revised
   css: assets/css
   js: assets/js
 
 src:
   sass:
-    main: assets/scss/uno-zen.scss
+    main: assets/scss/uno-zen-revised.scss
     files: [assets/scss/**/**]
 
   js:
@@ -25,7 +25,7 @@ src:
     post: [assets/vendor/fitvids/jquery.fitvids.js, assets/js/src/prism.js]
 
   css:
-    main: assets/css/uno-zen.css
+    main: assets/css/uno-zen-revised.css
     vendor: assets/css/vendor
 # banner = [ "/**"
 #            " * <%= pkg.name %> - <%= pkg.description %>"

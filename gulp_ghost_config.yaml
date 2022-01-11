@@ -1,32 +1,32 @@
 dist:
-  name: uno-zen
-  css: content/themes/uno-zen/assets/css
-  js: content/themes/uno-zen/assets/js
+  name: uno-zen-revised
+  css: content/themes/uno-zen-revised/assets/css
+  js: content/themes/uno-zen-revised/assets/js
 
 src:
   sass:
-    main: content/themes/uno-zen/assets/scss/uno-zen.scss
-    files: [content/themes/uno-zen/assets/scss/**/**.scss]
+    main: content/themes/uno-zen-revised/assets/scss/uno-zen-revised.scss
+    files: [content/themes/uno-zen-revised/assets/scss/**/**.scss]
 
   js:
     common:
       main:
         [
-          content/themes/uno-zen/assets/js/src/__init.coffee,
-          content/themes/uno-zen/assets/js/src/main.coffee,
-          content/themes/uno-zen/assets/js/src/cover.coffee,
+          content/themes/uno-zen-revised/assets/js/src/__init.coffee,
+          content/themes/uno-zen-revised/assets/js/src/main.coffee,
+          content/themes/uno-zen-revised/assets/js/src/cover.coffee,
         ]
       vendor:
         [
-          content/themes/uno-zen/assets/vendor/instantclick/instantclick.js,
-          content/themes/uno-zen/assets/vendor/pace/pace.min.js,
-          content/themes/uno-zen/assets/vendor/reading-time/build/readingtime.min.js,
+          content/themes/uno-zen-revised/assets/vendor/instantclick/instantclick.js,
+          content/themes/uno-zen-revised/assets/vendor/pace/pace.min.js,
+          content/themes/uno-zen-revised/assets/vendor/reading-time/build/readingtime.min.js,
         ]
-    post: [content/themes/uno-zen/assets/vendor/fitvids/jquery.fitvids.js, content/themes/uno-zen/assets/js/src/prism.js]
+    post: [content/themes/uno-zen-revised/assets/vendor/fitvids/jquery.fitvids.js, content/themes/uno-zen-revised/assets/js/src/prism.js]
 
   css:
-    main: content/themes/uno-zen/assets/css/uno-zen.css
-    vendor: content/themes/uno-zen/assets/css/vendor
+    main: content/themes/uno-zen-revised/assets/css/uno-zen-revised.css
+    vendor: content/themes/uno-zen-revised/assets/css/vendor
 # banner = [ "/**"
 #            " * <%= pkg.name %> - <%= pkg.description %>"
 #            " * @version <%= pkg.version %>"
