@@ -21,7 +21,7 @@ fs              = require('fs'),
 reload      = browserSync.reload;
 
 // isProduction = process.env.NODE_ENV is 'production';
-var isProduction = false;
+var isProduction = (process.env.NODE_ENV == 'production');
 
 // ----------------------------------------------------------------------------
 
