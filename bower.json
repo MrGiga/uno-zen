@@ -22,7 +22,6 @@
     "zen"
   ],
   "dependencies": {
-    "fastclick": "latest",
     "fitvids": "latest",
     "instantclick": "latest",
     "pace": "latest",
