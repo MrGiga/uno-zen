@@ -1,26 +1,21 @@
-# Uno Zen for Ghost
+# Uno Zen Revised for Ghost
 
-![Last version](https://img.shields.io/github/tag/Kikobeats/uno-zen.svg?style=flat-square)
-[![Build Status](http://img.shields.io/travis/Kikobeats/uno-zen/master.svg?style=flat-square)](https://travis-ci.org/Kikobeats/uno-zen)
-![Ghost version](https://img.shields.io/badge/Ghost-1.x-brightgreen.svg?style=flat-square)
-![Node version](https://img.shields.io/node/v/uno-zen.svg?style=flat-square)
-[![Donate](https://img.shields.io/badge/donate-paypal-blue.svg?style=flat-square)](https://paypal.me/kikobeats)
+![Last version](https://img.shields.io/github/tag/MrGiga/uno-zen-revised.svg?style=flat-square)
+![Build Status](https://github.com/MrGiga/uno-zen-revised/actions/workflows/master.yml/badge.svg)
+![Ghost version](https://img.shields.io/badge/Ghost-4.x-brightgreen.svg?style=flat-square)
+<!-- ![Node version](https://img.shields.io/node/v/uno-zen-revised.svg?style=flat-square) -->
 
 > Minimalist and Elegant theme for Ghost.
 
-**NOTE**: Commercial version is available as [Uno Urban](https://sellfy.com/p/G5kK).
+<img src="http://i.imgur.com/LCSB4Ca.jpg">
 
-[<img src="http://i.imgur.com/LCSB4Ca.jpg">](http://kikobeats.com)
-
-- [Uno Zen for Ghost](#uno-zen-for-ghost)
+- [Uno Zen Revised for Ghost](#uno-zen-revised-for-ghost)
   * [Introduction](#introduction)
     + [Whats is new in 2.x](#whats-is-new-in-2x)
   * [Installation](#installation)
   * [Update](#update)
     + [Update your current version](#update-your-current-version)
-    + [Receive a mail notification when a new version is available](#receive-a-mail-notification-when-a-new-version-is-available)
   * [Development and Customization](#development-and-customization)
-  * [Showcase](#showcase)
   * [Related](#related)
   * [License](#license)
 
@@ -28,7 +23,7 @@
 
 ## Introduction
 
-**Uno Zen** is a theme for Ghost inspired in [Uno](https://github.com/daleanthony/Uno) but providing a set of missing features in the original theme that are aligned with minimalist design style.
+**Uno Zen Revised** is a theme for Ghost taken from the archived version of [Uno-Zen](https://github.com/Kikobeats/uno-zen) but includes compatibility with Ghost 4.0 and implemenation of Docker.
 
 ### Whats is new in 2.x
 
@@ -54,7 +49,7 @@ Please ensure that `git` and `curl` is installed on your machine.
 Enter the theme folder (`content/themes`) of your Ghost installation and paste the following command:
 
 ```bash
-$ curl -sSL http://git.io/vcIHr | sh
+$ curl -sSL https://raw.githubusercontent.com/MrGiga/uno-zen-revised/master/scripts/install.sh | sh
 ```
 
 ### Alternative installation (to enable deployment to remote server):
@@ -63,7 +58,7 @@ Run the above command inside a temporary folder.
 
 Delete the `.git` folder inside the `uno-zen` folder.
 
-Copy and paste the `uno-zen` folder into the theme folder (`content/themes`).
+Copy and paste the `uno-zen-revised` folder into the theme folder (`content/themes`).
 
 This will add a static copy of the theme to your blog's git repository and allow changes to be tracked by git.
 
@@ -88,12 +83,11 @@ It should look like this:
 
 ## Update
 
-One objective of this project is to adopt an effective policy to have the latest version of the theme all the time. We have divided this process into two steps:
-
+One objective of this project is to adopt an effective policy to have the latest version of the theme all the time. An update script is included in the repository.
 
 ### Update your current version
 
-Make sure you're in the uno-zen directory. Then run:
+Make sure you're in the uno-zen-revised directory. Then run:
 
 ```bash
 $ sh scripts/update.sh
@@ -101,38 +95,27 @@ $ sh scripts/update.sh
 
 That's all!
 
-### Receive a mail notification when a new version is available
-
-Stay tuned for new releases with this [IFTTT recipe](https://ifttt.com/recipes):
-
-<div align="center">
-<a target="blank" href="https://ifttt.com/recipes/330382-uno-zen-new-release-send-me-an-email"><img src="http://i.imgur.com/sbl8YiZ.png"></a>
-</br>
-</br>
-</div>
-
 ## Development and Customization
 
-See in [Documentation](https://github.com/Kikobeats/uno-zen/blob/master/DOCUMENTATION.md).
+See in [Documentation](https://github.com/MrGiga/uno-zen-revised/blob/master/DOCUMENTATION.md).
 
-## Showcase
+<!-- ## Showcase
 
 <div align="center">
-<a target="blank" href="http://kikobeats.com"><img src="http://i.imgur.com/crE8jt2.png"></a>
+<a target="blank" href="http://johncurcio.com"><img src="http://i.imgur.com/crE8jt2.png"></a>
 <a target="blank" href="http://www.evilsocket.net"><img src="http://i.imgur.com/qanAbQf.png"></a>
 <a target="blank" href="http://pupboss.com"><img src="http://i.imgur.com/0AeVKgB.png"></a>
 <a target="blank" href="http://robinz.in"><img src="http://i.imgur.com/qDAbrch.jpg" /></a>
 </br>
 </br>
 .. and many, many more. <a href="https://github.com/Kikobeats/uno-zen/blob/master/SHOWCASE.md">See all</a>!.
-</div>
+</div> -->
 
 
 ## Related
 
-* [Uno Urban](https://kikobeats.github.io/uno-urban) – Commercial version of Uno Zen.
-* [Bloggy](https://github.com/Kikobeats/bloggy#bloggy-for-ghost) – Brand theme for Ghost.
+* [Uno Zen](https://github.com/Kikobeats/uno-zen) – Archived version of Uno Zen.
 
 ## License
 
-MIT © [Kiko Beats](kikobeats.com)
+MIT © [MrGiga](johncurcio.com)
