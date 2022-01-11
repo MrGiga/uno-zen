@@ -1,0 +1,17 @@
+name: Release
+on:
+  push:
+    tags:
+      - '*'
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Zip Folder
+        run: zip -r release.zip *.hbs *.md *.html package.json partials/ assets/js/uno-zen.common.js assets/js/uno-zen.post.js assets/css/uno-zen.css assets/fonts/ assets/img/
+      - name: Upload Release
+        uses: ncipollo/release-action@v1
+        with:
+          artifacts: 'release.zip'
+          token: ${{ secrets.GITHUB_TOKEN }}
