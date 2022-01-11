@@ -14,7 +14,8 @@ jobs:
         with:
           node-version: '14'
       - run: npm install
-      - run: node bower install
+      - run: npm install -g bower
+      - run: bower install
       - run: npm install gulp@4.0.2 --also=dev
       - run: gulp build
       - name: Zip Folder
