@@ -19,9 +19,9 @@ jobs:
       - run: npm install gulp@4.0.2 --also=dev
       - run: gulp build
       - name: Zip Folder
-        run: zip -r uno-zen-revised-$GITHUB_REF_NAME.zip *.hbs *.md *.html package.json partials/ assets/js/uno-zen.common.js assets/js/uno-zen.post.js assets/css/uno-zen.css assets/fonts/ assets/img/
+        run: zip -r uno-zen-revised-${GITHUB_REF_NAME}.zip *.hbs *.md *.html package.json partials/ assets/js/uno-zen.common.js assets/js/uno-zen.post.js assets/css/uno-zen.css assets/fonts/ assets/img/
       - name: Upload Release
         uses: ncipollo/release-action@v1
         with:
-          artifacts: 'uno-zen-revised-$GITHUB_REF_NAME.zip'
+          artifacts: 'uno-zen-revised-${GITHUB_REF_NAME}.zip'
           token: ${{ secrets.GITHUB_TOKEN }}
