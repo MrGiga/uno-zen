@@ -10,7 +10,7 @@ The code of the theme is divided in 3 main sections: static files (as HTML and i
 ├── README.md
 ├── assets
 │   ├── css
-│   │   └── uno-zen.css # the production css
+│   │   └── uno-zen-revised.css # the production css
 │   ├── fonts
 │   ├── img # favicons and cover image
 │   ├── js
@@ -19,7 +19,8 @@ The code of the theme is divided in 3 main sections: static files (as HTML and i
 │   │   │   ├── cover.coffee
 │   │   │   ├── main.coffee
 │   │   │   └── search.coffee
-│   │   └── uno-zen.js # the production js
+│   │   └── uno-zen-revised.common.js # first production js
+│   │   └── uno-zen-revised.post.js # second production js
 │   └── scss
 │   │   ├── components # specific stuff
 │   │   │   ├── _aside.scss
@@ -39,7 +40,7 @@ The code of the theme is divided in 3 main sections: static files (as HTML and i
 │   │   │   ├── _mixins.scss
 │   │   │   ├── _reset.scss
 │   │   │   └── _variables.scss
-│   │   └── uno.scss # main file to create the CSS
+│   │   └── uno-zen-revised.scss # main file to create the CSS
 |   └── vendor # frontend dependencies
 ├── bower.json
 ├── default.hbs
@@ -64,14 +65,16 @@ The code of the theme is divided in 3 main sections: static files (as HTML and i
 
 Putting the files in context:
 
-- The JS inside `assets/js/src` is compiled into `assets/js/uno.js`
+- The JS inside `assets/js/src/*.coffee`, and some of the vendors in `asset/vendor` are compiled into `assets/js/uno-zen-revised.common.js`
+- The vendors not compiled into `assets/js/uno-zen-revised.common.js` are compiled into `assets/js/uno-zen-revised.post.js`
 - The SCSS (we use [SASS](http://sass-lang.com/)) inside `assets/scss` is compiled into `assets/css/uno.css`
 - We have some static files like `post.hbs`, `tag.hbs`, `default.hbs`, `index.hbs`,... the partials views inside `assets/partials` is used in this views.
 
-For do it automatically and easily we use [Gulp](http://gulpjs.com/), check `gulpfile.coffee` for know how to we do it.
+For do it automatically and easily we use [Gulp](http://gulpjs.com/), check `gulpfile.js` for know how to we do it.
 
 ## First Steps
 
+### Local Development
 For local development you need to have a local Ghost server running. It should look like this:
 
 ```bash
@@ -88,16 +91,29 @@ Note that my local Ghost is running in the port `2387`.
 With your local Ghost running, open another terminal and enter in the folder `content/themes` of your local Ghost and clone the theme repository and install the dependencies for local development:
 
 ```bash
-$ git clone https://github.com/Kikobeats/uno-zen && cd uno-zen && npm install && bower install
+$ git clone https://github.com/MrGiga/uno-zen-revised && cd uno-zen-revised && npm install && bower install
 ```
 
 Just run `gulp` command in the theme terminal. Now you have a development scenario, and looks like this:
 
 ![](http://i.imgur.com/Gf4gPR2.png)
 
-With the default `gulp` command you are automatically launching the task that will compile all assets and reload the server when those assets change. To do that, we use [BrowserSync](http://www.browsersync.io), which is set up as middleware between the theme and Ghost. You can connect different devices and see how the website is responsive as well.
+With the `gulp watch` command you are automatically launching the task that will compile all assets and reload the server when those assets change. To do that, we use [BrowserSync](http://www.browsersync.io), which is set up as middleware between the theme and Ghost. You can connect different devices and see how the website is responsive as well.
 
 As you can see in the screenshot (top right window), BrowserSync needs to know which port to proxy, and it needs to be the same port as your Ghost server. If your Ghost server is in a different port than `2387` you need to modify `gulpfile.coffee` and add the correct port. BrowserSync should remain on 3000.
+### Docker Development
+For Docker development, a Dockerfile is included. At this time it is not automatically built, so you will need to build it on your computer. The docker container already contains a version of Ghost, therefore at minimum you only need to mount your themes folder.
+
+```bash
+docker run -d -v "/local/ghost/content/themes:/var/lib/ghost/content/themes:consistent" -p 2368:2368 -p 3000:3000 -p 3001:3001 dockercontainer:latest
+```
+
+Once docker is running, you will need to access the container through shell and run 
+```bash
+docker exec -it <CONTAINER ID> content/themes/uno-zen/scripts/configure_gulp_docker.sh  
+```
+
+This will install the needed dependencies, and run the Gulp watch command which initializes a BrowserSync session
 
 ## Customization
 
