@@ -105,7 +105,7 @@ As you can see in the screenshot (top right window), BrowserSync needs to know w
 For Docker development, a Dockerfile is included. At this time it is not automatically built, so you will need to build it on your computer. The docker container already contains a version of Ghost, therefore at minimum you only need to mount your themes folder.
 
 ```bash
-docker run -d -v "/local/ghost/content/themes:/var/lib/ghost/content/themes:consistent" -p 2368:2368 -p 3000:3000 -p 3001:3001 dockercontainer:latest
+docker run -d -v "/local/ghost/content/themes:/var/lib/ghost/content/themes:consistent" -p 2387:2387 -p 3000:3000 -p 3001:3001 dockercontainer:latest
 ```
 
 Once docker is running, you will need to access the container through shell and run 
