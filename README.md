@@ -34,13 +34,11 @@
 
 Things that already existed:
 
-- A good [404 page error](http://kikobeats.com/404).
+- A good 404 page error.
 - Search support.
 - Multiaccount support.
 - Loading progress state for each page.
 - Estimation about the time of reading.
-
-You can see a [demo](http://kikobeats.com) in my own blog. Also you can check the [styleguide](http://kikobeats.com/styleguide) to view how it looks.
 
 ## Installation
 
@@ -56,7 +54,7 @@ $ curl -sSL https://raw.githubusercontent.com/MrGiga/uno-zen-revised/master/scri
 
 Run the above command inside a temporary folder.
 
-Delete the `.git` folder inside the `uno-zen` folder.
+Delete the `.git` folder inside the `uno-zen-revised` folder.
 
 Copy and paste the `uno-zen-revised` folder into the theme folder (`content/themes`).
 
