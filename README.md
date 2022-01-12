@@ -11,7 +11,7 @@
 
 - [Uno Zen Revised for Ghost](#uno-zen-revised-for-ghost)
   * [Introduction](#introduction)
-    + [Whats is new in 2.x](#whats-is-new-in-2x)
+    + [Whats is new in 3.x](#whats-is-new-in-3x)
   * [Installation](#installation)
   * [Update](#update)
     + [Update your current version](#update-your-current-version)
@@ -25,20 +25,12 @@
 
 **Uno Zen Revised** is a theme for Ghost taken from the archived version of [Uno-Zen](https://github.com/Kikobeats/uno-zen) but includes compatibility with Ghost 4.0 and implemenation of Docker.
 
-### Whats is new in 2.x
+### Whats is new in 3.x
 
-- Totally rewritten using HTML5 and CSS3.
-- Improved development workflow with gulp + browersync.
-- Improved responsive and mobile experience.
-- Improved SEO Content with meta tags.
-
-Things that already existed:
-
-- A good 404 page error.
-- Search support.
-- Multiaccount support.
-- Loading progress state for each page.
-- Estimation about the time of reading.
+- Compatible with Ghost 4.0
+- Rewrite of GulpJS implementation to work with latest version of GulpJS
+- Docker Development Environment
+- Minor Tweaks
 
 ## Installation
 
