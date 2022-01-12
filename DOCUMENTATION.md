@@ -110,7 +110,7 @@ docker run -d -v "/local/ghost/content/themes:/var/lib/ghost/content/themes:cons
 
 Once docker is running, you will need to access the container through shell and run 
 ```bash
-docker exec -it <CONTAINER ID> content/themes/uno-zen/scripts/configure_gulp_docker.sh  
+docker exec -it <CONTAINER ID> content/themes/uno-zen-revised/scripts/configure_gulp_docker.sh  
 ```
 
 This will install the needed dependencies, and run the Gulp watch command which initializes a BrowserSync session
