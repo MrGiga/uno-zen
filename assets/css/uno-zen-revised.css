@@ -2165,3 +2165,13 @@ figcaption {
   text-align: center;
   font-size: .8rem;
   padding-bottom: .5rem; }
+
+.kg-width-full img,
+.kg-width-wide {
+  position: relative;
+  margin: 0 0 0 0.75em; }
+
+.kg-gallery-row,
+.kg-gallery-image,
+.kg-gallery-container {
+  display: flex; }

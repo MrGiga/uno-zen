@@ -1,3 +1,11 @@
+<a name="3.0.0"></a>
+## 3.0.0 (2022-01-12)
+
+* Major rewrites including Docker Implementation and GulpJS ([dbb780](https://github.com/MrGiga/uno-zen-revised/commit/dbb780))
+* Updated DOCUMENTATION.md ([d4c357](https://github.com/MrGiga/uno-zen-revised/commit/d4c357))
+* Renamed compiled files and updated where needed ([cd1888](https://github.com/MrGiga/uno-zen-revised/commit/cd1888))
+
+<a name="2.9.7"></a>
 <a name="2.9.8"></a>
 ## 2.9.8 (2017-08-05)
 

@@ -2,7 +2,7 @@
   "name": "uno-zen-revised",
   "description": "Minimalist and Elegant theme for Ghost. Revised from https://github.com/kikobeats/uno-zen",
   "homepage": "https://github.com/MrGiga/uno-zen-revised",
-  "version": "2.9.9",
+  "version": "3.0.0",
   "author": {
     "email": "johnn.curcio@gmail.com",
     "name": "Mr Giga",
@@ -17,7 +17,7 @@
   },
   "keywords": [
     "elegant",
-    "ghost",
+    "ghost-theme",
     "minimalism",
     "theme",
     "uno",
@@ -41,13 +41,14 @@
     "gulp-util": "3.0.8"
   },
   "engines": {
-    "node": ">= 8"
+    "node": ">= 8",
+    "ghost-api": "v4"
   },
   "license": "MIT",
   "browserSync": {
     "port": 3000,
     "open": false,
-    "proxy": "http://localhost:2368"
+    "proxy": "http://localhost:2387"
   },
   "dependencies": {
     "node-sass": "^7.0.1"
