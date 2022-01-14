@@ -1,17 +1,17 @@
 {
-  "name": "uno-zen",
+  "name": "uno-zen-revised",
   "description": "Minimalist and Elegant theme for Ghost",
-  "homepage": "https://github.com/kikobeats/uno-zen",
+  "homepage": "https://github.com/MrGiga/uno-zen-revised",
   "version": "2.9.8",
   "authors": [
-    "Kiko Beats <josefrancisco.verdu@gmail.com>"
+    "John Curcio <johnn.curcio@gmail.com>"
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/kikobeats/uno-zen.git"
+    "url": "git+https://github.com/MrGiga/uno-zen-revised.git"
   },
   "bugs": {
-    "url": "https://github.com/Kikobeats/uno-zen/issues"
+    "url": "https://github.com/MrGiga/uno-zen-revised/issues"
   },
   "keywords": [
     "elegant",
@@ -22,7 +22,6 @@
     "zen"
   ],
   "dependencies": {
-    "fastclick": "latest",
     "fitvids": "latest",
     "instantclick": "latest",
     "pace": "latest",

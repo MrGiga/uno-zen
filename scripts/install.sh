@@ -1,16 +1,12 @@
 #!/bin/bash
 
-if [ -d "uno-zen" ]; then
-  echo "\nUno Zen is already installed. Maybe you want to update? Run:"
-  echo "\ncd uno-zen && sh scripts/update.sh\n"
+if [ -d "uno-zen-revised" ]; then
+  echo "\nUno Zen Revised is already installed. Maybe you want to update? Run:"
+  echo "\ncd uno-zen-revised && sh scripts/update.sh\n"
   exit
 fi
 
-git clone https://github.com/Kikobeats/uno-zen.git && cd uno-zen
-
-. "$PWD"/scripts/utils.sh
-
-welcome
+git clone https://github.com/MrGiga/uno-zen-revised.git && cd uno-zen-revised
 
 echo "Getting the repository tagged commits"
 git fetch --tags

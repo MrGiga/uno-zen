@@ -3,8 +3,8 @@
 # This script creates an archive of the theme files to be used with Ghost(Pro).
 # Note: Be sure to first run 'Gulp build' before executing this script, to ensure everything is compiled and minified for production.
 
-FILES="*.hbs *.md *.html package.json partials/ assets/js/uno-zen.common.js assets/js/uno-zen.post.js assets/css/uno-zen.css assets/fonts/ assets/img/"
-OUTPUT="uno-zen"
+FILES="*.hbs *.md *.html package.json partials/ assets/js/uno-zen-revised.common.js assets/js/uno-zen-revised.post.js assets/css/uno-zen-revised.css assets/fonts/ assets/img/"
+OUTPUT="uno-zen-revised"
 
 if [ $# -eq 0 ]; then
     printf "\nNo argument supplied, using default as archive name.\n\n"
