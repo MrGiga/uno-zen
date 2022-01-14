@@ -108,4 +108,4 @@ See in [Documentation](https://github.com/MrGiga/uno-zen-revised/blob/master/DOC
 
 ## License
 
-MIT © [MrGiga](johncurcio.com)
+MIT © [MrGiga](http://www.johncurcio.com)
